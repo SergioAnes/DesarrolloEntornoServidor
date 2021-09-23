@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Ej1s Sergio Anes </title>
+</head>
+<body>
+
+<?php
+
+
+//Para resolver este ejercicio se va a utilizar tanto el  strstr como substr.
+
+$ip="192.18.16.204";
+
+//pasamos la IP a "porciones":
+
+
+$ip1 = strstr($ip, ".", true); //aqui se imprime el 192
+
+
+$porcion1 = substr(strstr($ip, ".", false), 1); // el strstr devuelve .18.16.204 y con el substr quito el punto. Me queda: 18.16.204
+
+//ahora $porcion1 tiene esta IP: 18.16.204, por lo que se vuelve a hacer como al principio y aislo el 18 del resto. 
+
+$ip2 = strstr($porcion1 , ".", true); //Esto me imprime el 18. 
+
+$porcion2 = substr(strstr($porcion1 , ".", false),1);  //el strstr devuelve .16.204 y con el substr quito el punto. Me queda: 16.204
+
+$ip3 =  strstr($porcion2 , ".", true); //aqui se imprime el 16
+
+//ahora porcion2 tiene 16.204 y queremos solo el ultimo 204. Así que hacemos lo siguiente: 
+
+$ip4 = substr(strstr($porcion2 , ".", false), 1); //strstr($porcion2 , ".", false) devuelve .204 y con el substr le quito el punto. 
+
+
+//apunte personal: 
+$ip5 = substr(2748, -1); //si hago esto imprime el 8, pero si en vez de -1 le pongo 1 imprime el 748.
+
+
+//$ip4 ya imprime el 204.
+
+//¡Ya tengo todo en porciones! $ip1, $ip2, $ip3, $ip4; Ahora queda convertirlas a decimal. 
+//Para eso hacemos uso del printf.
+
+printf("Numero $ip1 $ip2 $ip3 $ip4 se representa en binario como %b.%b.%b.%b <br/>",$ip1, $ip2, $ip3, $ip4);
+
+//Ahora vamos a probar con otra dirección IP. 
+
+
+?>
+
+</body>
+</html>
+
