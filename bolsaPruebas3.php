@@ -13,9 +13,17 @@
 
 <?php 
 
-echo "<table border='1' width='250px'>";
+
+
+
+echo "<table border='2' width='400px'>";
 echo "<tr>" . "<td>" . "Nombre" . "</td>" . "<td>" . "Precio" . "</td>" . "<td>" . "Variacion" . "</td>" . "<td>" . "Volumen" . "</td>" . "<td>" . "Volumen" . "</td>" . "</tr>"; 
 
+
+$i=0;	
+while ($i<=35) 
+
+{
 $Ibex35 = array("Empresa " => array (
 										"Precio" => rand(),
 										"VARIACION(%)" => rand(),
@@ -25,10 +33,7 @@ $Ibex35 = array("Empresa " => array (
 
 
 
-$i=0;	
-while ($i<=35) 
 
-{
 
 	foreach ($Ibex35 as $empresa => $datos) {
 			echo "<tr>" . "<td>" . $empresa . + $i  . "</td>";
