@@ -1,76 +1,59 @@
-
-
 <?php 
 
-//EJERCICIO SERGIO ANES GALÁN
+//EJERCICIO de SERGIO ANES GALÁN. 
 
-//Se crean las dos estructuras basicas de arrays.
+//Se crea la estructura basica de array.
 $carton=array();
-$bombo=array();
 
-
-//Se crean numeros aleatorios que NO SE REPITAN, para ello se hace uso de la funcion in_array. 
+//Se crean numeros aleatorios que NO SE REPITAN DEL CARTON, para ello se hace uso de la funcion in_array.
 $i=0;  
 while($i<15)  
 {  
     $numerosCarton=rand(1,60);  
-    if(in_array($numerosCarton,$carton)===false) //Si el numero de carton, generado aleatoriamente, si no se encuentra, devuelve FALSE. 
+    if(in_array($numerosCarton,$carton)===false) //Si el numero aleatorio no se encuentra en el cartón, devuelve FALSE. 
     {  
-        array_push($carton,$numerosCarton);  //si devuelve false, entonces se añade en el carton el numero creado. 
+        array_push($carton,$numerosCarton);  //Y si devuelve false, entonces se añade al cartón, porque es un número que NO ESTABA.  
         $i++;  
     }  
 }  
 
+echo "Mi carton tiene los siguientes numeros: ";
 
-//Se crean los numeros para el bombo sin que tampoco se repitan.
-$i=0;  
-while($i<60)  
-{  
-    $numerosBombo=rand(1,60);  
-    if(in_array($numerosBombo,$bombo)===false) //
-    {  
-        array_push($bombo,$numerosBombo);  //
-        $i++;  
-    }  
-}  
+for ($i=0; $i<count($carton); $i++) {  //Ahora imprimo los números del cartón para verlos en pantalla. 
 
-
-$aciertos=0;
-$tachados=array();
-
-
-while ($aciertos<15){
-
-	do {
-		$numerosBombo=rand(1,60);
-	} while (in_array($numerosBombo,$tachados)) {
-
-			array_push($tachados,$numerosBombo);
-
-		
-
-	}
-
-
-
-
+    echo "$carton[$i] /";
 }
 
-$coincidencias = array_intersect($carton, $bombo);
+    echo "<br>";
 
-foreach($coincidencias as $value) {
-    echo $value;
-}
+$numerosTachados=0;
+$fueradelBombo=array();
 
-var_dump($carton); 
-var_dump($bombo);
+    while($numerosTachados < count($carton)) { //Aquí le digo: Oye, haz esto hasta que haya sacado los 15 números de mi cartón; es decir, hasta que haya 15/15 tachados. 
+  
+        $numeroAleatorio=rand(1,60); //genero un número aleatorio. 
 
+        while (in_array($numeroAleatorio,$fueradelBombo)) { //Para que no se repita, le digo: Si el numero aleatorio ya estaba fuera del bombo, no se puede volver a sacar! Porque no debería estar.
 
-echo "<br>";
+             $numeroAleatorio=rand(1,60); //Así que, si el aleatorio que ha salido coincide con uno que ya estaba fuera del bombo, entonces vuelve a generar otro. Y así hasta que no coincida con ninguno de los que estaban ya fuera. 
+        }
 
-var_dump($coincidencias);
+            array_push($fueradelBombo,$numeroAleatorio); //Y cuando saque esa bola, hay que añadirla a esa caja "fuera del bombo".
 
+        echo "El numero al azar es: $numeroAleatorio <br>";
 
+        for($i=0; $i<count($carton); $i++){ //Una vez que ya tenemos la bola, aquí simplemente recorro el cartón para ver si hay coincidencias entre la "bola sacada" y alguno de los números de mi cartón. 
 
+            if($numeroAleatorio===$carton[$i]) { //Si la bola sacada coincide con uno de los números de mi cartón, entonces... 
+                $carton[$i]="X"; //entonces ponle una X a ese numero. Es decir, machácalo por una X, porque ya no me interesa. 
+                $numerosTachados++; //Y, por supuesto, incrementa el contador de números tachados.
+        }
+            echo("$carton[$i]/");
+        }
+
+            echo("<br>");
+    }//fin del while principal. 
+
+    echo "Has conseguido el BINGO. Enhorabuena, Sergio :)"; //joder, ha costado. ¡Poco a poco! 
 
  ?>
