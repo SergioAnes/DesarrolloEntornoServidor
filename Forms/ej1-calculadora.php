@@ -14,7 +14,7 @@ calculadora($numero1, $numero2, $operacion);
 
 
 function calculadora($operando1, $operando2, $operacion) {
-		echo "<div align='center'>" . "<input type='text' name='operando1' value='$operando1' size=15><br>" . "</div><br><br>";
+	
 	 echo "<div align='center'>" . "El primer numero es " . $operando1 . " y el segundo numero es " . $operando2 . "</div><br><br>";
 
 	switch ($operacion) {
