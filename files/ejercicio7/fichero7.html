@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> SergioAnes Operaciones Sistemas Ficheros</title>
+  </head>
+  <body>
+    <h1>Operaciones Ficheros</h1>
+
+    <form name='formulario' method='post' action='fichero7.php'>
+
+      Fichero Origen (Path/nombre): <input type='text' name='ficheroOrigen' required><br>
+      Fichero Destino (Path/nombre): <input type='text' name='ficheroDestino'><br>
+
+      Operaciones: <br>
+        <input type='radio' name='operacion' value='copiarFichero' /> Copiar fichero <br>
+        <input type='radio' name='operacion' value='renombrarFichero' /> Renombrar fichero <br>
+        <input type='radio' name='operacion' value='borrarFichero' /> Borrar fichero <br> 
+      <input type='submit' value='Ejecutar Operación' />
+      <input type='reset' value='Borrar ' />
+    </form>
+  </body>
+</html>
