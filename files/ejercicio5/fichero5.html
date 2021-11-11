@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> SergioAnes Operaciones Ficheros</title>
+  </head>
+  <body>
+    <h1>Operaciones Ficheros</h1>
+
+    <form name='formulario' method='post' action='fichero5.php'>
+
+      Fichero (Path/nombre): <input type='text' name='nombreFichero' required><br><br>
+
+      Operaciones: <br>
+        <input type='radio' name='operacion' value='mostrarFichero' /> Mostrar Fichero <br>
+        <input type='radio' name='operacion' value='mostrarLineaFichero' /> Mostrar linea <input type='text' name='numeroLinea'> fichero <br>
+        <input type='radio' name='operacion' value='mostrarXLineas' /> Mostrar  <input type='text' name='primerasLineas'> primeras lineas <br> <br>
+      <input type='submit' value='Enviar' />
+      <input type='reset' value='Borrar ' />
+    </form>
+  </body>
+</html>
